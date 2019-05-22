@@ -464,12 +464,12 @@ class GenericNeuralNet(object):
         return feed_dict
 
 
-    def get_inverse_hvp(self, v, approx_type='cg', approx_params=None, verbose=True):
+    def get_inverse_hvp(self, v,train_idx ,approx_type='cg', approx_params=None, verbose=True):
         assert approx_type in ['cg', 'lissa']
         if approx_type == 'lissa':
             return self.get_inverse_hvp_lissa(v, **approx_params)
         elif approx_type == 'cg':
-            return self.get_inverse_hvp_cg(v, verbose)
+            return self.get_inverse_hvp_cg(train_idx,v, verbose)
 
 
     def get_inverse_hvp_lissa(self, v, 
@@ -564,7 +564,7 @@ class GenericNeuralNet(object):
         return np.concatenate(hessian_vector_val)
 
 
-    def get_cg_callback(self, v, verbose):
+    def get_cg_callback(self,train_idx, v, verbose):
         fmin_loss_fn = self.get_fmin_loss_fn(v)
         
         def fmin_loss_split(x):
@@ -575,7 +575,7 @@ class GenericNeuralNet(object):
         def cg_callback(x):
             # x is current params
             v = self.vec_to_list(x)
-            idx_to_remove = 5
+            idx_to_remove = train_idx
 
             single_train_feed_dict = self.fill_feed_dict_with_one_ex(self.data_sets.train, idx_to_remove)      
             train_grad_loss_val = self.sess.run(self.grad_total_loss_op, feed_dict=single_train_feed_dict)
@@ -590,10 +590,10 @@ class GenericNeuralNet(object):
         return cg_callback
 
 
-    def get_inverse_hvp_cg(self, v, verbose):
+    def get_inverse_hvp_cg(self, train_idx, v, verbose):
         fmin_loss_fn = self.get_fmin_loss_fn(v)
         fmin_grad_fn = self.get_fmin_grad_fn(v)
-        cg_callback = self.get_cg_callback(v, verbose)
+        cg_callback = self.get_cg_callback(train_idx, v, verbose)
 
         fmin_results = fmin_ncg(
             f=fmin_loss_fn,
@@ -671,6 +671,7 @@ class GenericNeuralNet(object):
         else:
             inverse_hvp = self.get_inverse_hvp(
                 test_grad_loss_no_reg_val,
+                train_idx,
                 approx_type,
                 approx_params)
             np.savez(approx_filename, inverse_hvp=inverse_hvp)
