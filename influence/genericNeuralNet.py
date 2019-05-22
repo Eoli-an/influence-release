@@ -464,7 +464,7 @@ class GenericNeuralNet(object):
         return feed_dict
 
 
-    def get_inverse_hvp(self, v,train_idx ,approx_type='cg', approx_params=None, verbose=True):
+    def get_inverse_hvp(self, train_idx ,v,approx_type='cg', approx_params=None, verbose=True):
         assert approx_type in ['cg', 'lissa']
         if approx_type == 'lissa':
             return self.get_inverse_hvp_lissa(v, **approx_params)
@@ -670,8 +670,8 @@ class GenericNeuralNet(object):
             print('Loaded inverse HVP from %s' % approx_filename)
         else:
             inverse_hvp = self.get_inverse_hvp(
+                test_indices[0],
                 test_grad_loss_no_reg_val,
-                train_idx,
                 approx_type,
                 approx_params)
             np.savez(approx_filename, inverse_hvp=inverse_hvp)
