@@ -57,7 +57,7 @@ class All_CNN_C(GenericNeuralNet):
             [output_channels],
             tf.constant_initializer(0.0))
         weights_reshaped = tf.reshape(weights, [conv_patch_size, conv_patch_size, input_channels, output_channels])
-        hidden = tf.nn.tanh(conv2d(input_x, weights_reshaped, stride) + biases)
+        hidden = tf.nn.relu(conv2d(input_x, weights_reshaped, stride) + biases)
 
         return hidden
 
