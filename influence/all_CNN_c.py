@@ -134,6 +134,7 @@ class All_CNN_C(GenericNeuralNet):
         
         h3_d = tf.reduce_mean(h3_c, axis=[1, 2])
         """
+        h1_d = tf.reduce_mean(h1_a, axis=[1, 2])
         with tf.variable_scope('softmax_linear'):
 
             weights = variable_with_weight_decay(
@@ -146,7 +147,7 @@ class All_CNN_C(GenericNeuralNet):
                 [self.num_classes],
                 tf.constant_initializer(0.0))
 
-            logits = tf.matmul(h1_a, tf.reshape(weights, [last_layer_units, self.num_classes])) + biases
+            logits = tf.matmul(h1_d, tf.reshape(weights, [last_layer_units, self.num_classes])) + biases
             
         return logits
 
