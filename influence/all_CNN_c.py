@@ -21,6 +21,17 @@ import IPython
 import tensorflow as tf
 import math
 
+import numpy as np
+from keras.preprocessing.image import ImageDataGenerator
+from keras.models import Sequential
+from keras.layers import Conv2D
+from keras.layers import Activation, Dropout, Flatten, Dense
+from keras import optimizers
+from keras.models import load_model
+from keras.callbacks import ModelCheckpoint
+import keras
+from keras.models import load_model
+
 from influence.genericNeuralNet import GenericNeuralNet, variable, variable_with_weight_decay
 from influence.dataset import DataSet
 
@@ -93,14 +104,16 @@ class All_CNN_C(GenericNeuralNet):
         return input_placeholder, labels_placeholder
 
 
-    def inference(self, input_x):        
+    def inference(self, input_x):
+
+
 
         input_reshaped = tf.reshape(input_x, [-1, self.input_side, self.input_side, self.input_channels])
-        
+        last_layer_units = 10
         # Hidden 1
         with tf.variable_scope('h1_a'):
-            h1_a = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, self.hidden1_units, stride=1)
-            
+            h1_a = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, last_layer_units, stride=1)
+        """   
         with tf.variable_scope('h1_c'):
             h1_c = self.conv2d_softplus(h1_a, self.conv_patch_size, self.hidden1_units, self.hidden1_units, stride=2)
             
@@ -115,12 +128,12 @@ class All_CNN_C(GenericNeuralNet):
         with tf.variable_scope('h3_a'):
             h3_a = self.conv2d_softplus(h2_c, self.conv_patch_size, self.hidden2_units, self.hidden3_units, stride=1)        
         
-        last_layer_units = 10
+        
         with tf.variable_scope('h3_c'):
             h3_c = self.conv2d_softplus(h3_a, 1, self.hidden3_units, last_layer_units, stride=1)
         
         h3_d = tf.reduce_mean(h3_c, axis=[1, 2])
-        
+        """
         with tf.variable_scope('softmax_linear'):
 
             weights = variable_with_weight_decay(
@@ -133,7 +146,7 @@ class All_CNN_C(GenericNeuralNet):
                 [self.num_classes],
                 tf.constant_initializer(0.0))
 
-            logits = tf.matmul(h3_d, tf.reshape(weights, [last_layer_units, self.num_classes])) + biases
+            logits = tf.matmul(h1_a, tf.reshape(weights, [last_layer_units, self.num_classes])) + biases
             
         return logits
 
