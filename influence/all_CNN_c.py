@@ -76,7 +76,7 @@ class All_CNN_C(GenericNeuralNet):
 
     def get_all_params(self):
         all_params = []
-        for layer in ['h1_a', 'h1_c', 'h2_a', 'h2_c', 'h3_a', 'h3_c', 'softmax_linear']:        
+        for layer in ['h1_a', 'h1_d', 'softmax_linear']:
             for var_name in ['weights', 'biases']:
                 temp_tensor = tf.get_default_graph().get_tensor_by_name("%s/%s:0" % (layer, var_name))            
                 all_params.append(temp_tensor)      
