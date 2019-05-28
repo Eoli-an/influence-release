@@ -51,7 +51,7 @@ class All_CNN_C(GenericNeuralNet):
             'weights', 
             [conv_patch_size * conv_patch_size * input_channels * output_channels],
             stddev=2.0 / math.sqrt(float(conv_patch_size * conv_patch_size * input_channels)),
-            wd=self.weight_decay)
+            wd=None)
         biases = variable(
             'biases',
             [output_channels],
