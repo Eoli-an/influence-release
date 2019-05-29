@@ -104,7 +104,7 @@ class All_CNN_C(GenericNeuralNet):
         model.compile(loss="categorical_crossentropy",
                       optimizer=optimizer, metrics=['accuracy'])
 
-        for layer in model.layers:
+        #for layer in model.layers:
            # print(layer.get_weights())
         # print(model.layers)
 
