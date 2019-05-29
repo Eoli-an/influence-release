@@ -75,6 +75,11 @@ class All_CNN_C(GenericNeuralNet):
 
 
     def get_all_params(self):
+
+
+
+
+
         all_params = []
         for layer in ['h1_a', 'softmax_linear']:
             for var_name in ['weights', 'biases']:
@@ -84,6 +89,7 @@ class All_CNN_C(GenericNeuralNet):
                 #print(temp_tensor.size)
                 t2 = tf.constant(42, shape=temp_tensor.shape)
                 all_params.append(temp_tensor)
+                all_params.append(t2)
         #all_params.append(tf.constant([[1.0, 2.0], [3.0, 4.0]]))
         return all_params        
         
