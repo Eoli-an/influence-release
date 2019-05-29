@@ -76,7 +76,43 @@ class All_CNN_C(GenericNeuralNet):
 
     def get_all_params(self):
 
+        model = Sequential()
+        output_size = 32
+        kernel_size = 3
+        new_output_size = 0
 
+        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(128, 128, 1)))
+        model.add(Activation("relu"))
+        new_output_size = output_size
+
+        model.add(Conv2D(output_size * (1 + 1), (kernel_size, kernel_size)))
+        model.add(Activation("relu"))
+        new_output_size = output_size * (1 + 1)
+
+        model.add(Flatten())
+
+        model.add(Dense(new_output_size * 4))
+        model.add(Activation("relu"))
+        for i in range(1, 2):
+            model.add(Dense(int((new_output_size * 4) / i)))
+            model.add(Activation("relu"))
+
+        model.add(Dense(4))
+        model.add(Activation("softmax"))
+
+        optimizer = optimizers.SGD(lr=0.0001)
+        model.compile(loss="categorical_crossentropy",
+                      optimizer=optimizer, metrics=['accuracy'])
+
+        for layer in model.layers:
+           # print(layer.get_weights())
+        # print(model.layers)
+
+        first_layer_weights = model.layers[0].get_weights()[0]
+        first_layer_biases  = model.layers[0].get_weights()[1]
+
+        # print(first_layer_weights.shape)
+        # print(first_layer_biase)
 
 
 
@@ -89,8 +125,11 @@ class All_CNN_C(GenericNeuralNet):
                 #print(temp_tensor.size)
                 t2 = tf.constant(42, shape=temp_tensor.shape)
                 all_params.append(temp_tensor)
-                all_params.append(t2)
+
         #all_params.append(tf.constant([[1.0, 2.0], [3.0, 4.0]]))
+        all_params.append(t2)
+        all_params.append(first_layer_weights)
+        all_params.append(first_layer_biases)
         return all_params        
         
 
