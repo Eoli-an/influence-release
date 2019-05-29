@@ -72,7 +72,20 @@ class All_CNN_C(GenericNeuralNet):
 
         return hidden
 
+    def dense_hidden(self, input_x, conv_patch_size, input_channels, output_channels, stride):
+        weights = variable_with_weight_decay(
+            'weights',
+            [input_channels * output_channels],
+            stddev=2.0 / math.sqrt(float(input_channels)),
+            wd=None)
+        biases = variable(
+            'biases',
+            [output_channels],
+            tf.constant_initializer(0.0))
+        weights_reshaped = tf.reshape(weights, [input_channels, output_channels])
+        hidden = tf.nn.relu(tf.nn.dense(input_x, weights_reshaped, stride) + biases)
 
+        return hidden
 
     def get_all_params(self):
 
@@ -159,18 +172,20 @@ class All_CNN_C(GenericNeuralNet):
 
 
         input_reshaped = tf.reshape(input_x, [-1, self.input_side, self.input_side, self.input_channels])
-        last_layer_units = 10
+        last_layer_units = 128
         # Hidden 1
         with tf.variable_scope('h1_a'):
-            h1_a = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, last_layer_units, stride=1)
-        """   
+            h1_a = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
+
+        h2_d = tf.reduce_mean(h1_a, axis=[1, 2])
+
         with tf.variable_scope('h1_c'):
-            h1_c = self.conv2d_softplus(h1_a, self.conv_patch_size, self.hidden1_units, self.hidden1_units, stride=2)
+            h1_c = self.dense_hidden(h2_d, 32, 128, stride=2)
             
         # Hidden 2
         with tf.variable_scope('h2_a'):
-            h2_a = self.conv2d_softplus(h1_c, self.conv_patch_size, self.hidden1_units, self.hidden2_units, stride=1)
-            
+            h2_a = self.dense_hidden(h1_c, 128, 128, stride=1)
+        """   
         with tf.variable_scope('h2_c'):
             h2_c = self.conv2d_softplus(h2_a, self.conv_patch_size, self.hidden2_units, self.hidden2_units, stride=2)
             
@@ -184,7 +199,7 @@ class All_CNN_C(GenericNeuralNet):
         
         h3_d = tf.reduce_mean(h3_c, axis=[1, 2])
         """
-        h1_d = tf.reduce_mean(h1_a, axis=[1, 2])
+
         with tf.variable_scope('softmax_linear'):
 
             weights = variable_with_weight_decay(
@@ -197,7 +212,7 @@ class All_CNN_C(GenericNeuralNet):
                 [self.num_classes],
                 tf.constant_initializer(0.0))
 
-            logits = tf.matmul(h1_d, tf.reshape(weights, [last_layer_units, self.num_classes])) + biases
+            logits = tf.matmul(h2_a, tf.reshape(weights, [last_layer_units, self.num_classes])) + biases
             
         return logits
 
