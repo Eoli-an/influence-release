@@ -173,9 +173,9 @@ class GenericNeuralNet(object):
     def get_vec_to_list_fn(self):
         params_val = self.sess.run(self.params)
         #print(params_val)
-        print([tensor.name for tensor in tf.get_default_graph().as_graph_def().node])
-        self.num_params = len(np.column_stack(params_val))
-        print('Total number of parameters: %s' % self.num_params)
+        #print([tensor.name for tensor in tf.get_default_graph().as_graph_def().node])
+        #self.num_params = len(np.column_stack(params_val))
+        #print('Total number of parameters: %s' % self.num_params)
 
 
         def vec_to_list(v):
