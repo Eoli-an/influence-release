@@ -160,7 +160,6 @@ class All_CNN_C(GenericNeuralNet):
                 tf.constant_initializer(0.0))
 
             dense3 = tf.matmul(dense2, weights3) + biases3
-        print([tensor.name for tensor in tf.get_default_graph().as_graph_def().node])
         return dense3
 
     def predictions(self, logits):
