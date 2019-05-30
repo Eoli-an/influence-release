@@ -72,7 +72,7 @@ class All_CNN_C(GenericNeuralNet):
 
         return hidden
 
-    def dense_hidden(self, input_x, conv_patch_size, input_channels, output_channels, stride):
+    def dense_hidden(self, input_x, input_channels, output_channels, stride):
         weights = variable_with_weight_decay(
             'weights',
             [input_channels * output_channels],
