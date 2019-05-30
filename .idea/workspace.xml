@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79007c87-7191-4db2-8c25-2713d848a2b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/influence/all_CNN_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/influence/all_CNN_c.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8024">
-              <caret line="498" column="26" selection-start-line="498" selection-start-column="16" selection-end-line="498" selection-end-column="26" />
+            <state relative-caret-position="4131">
+              <caret line="504" column="31" lean-forward="true" selection-start-line="504" selection-start-column="31" selection-end-line="504" selection-end-column="31" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -77,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="120" column="56" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
+            <state relative-caret-position="162">
+              <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -214,12 +214,12 @@
       <workItem from="1558419592110" duration="644000" />
       <workItem from="1558505466808" duration="1593000" />
       <workItem from="1559026201662" duration="3788000" />
-      <workItem from="1559195087756" duration="4170000" />
+      <workItem from="1559195087756" duration="5156000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15757000" />
+    <option name="totallyTimeSpent" value="16743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -293,20 +293,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
+    <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8024">
-          <caret line="498" column="26" selection-start-line="498" selection-start-column="16" selection-end-line="498" selection-end-column="26" />
+        <state relative-caret-position="162">
+          <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
+    <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="120" column="56" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
+        <state relative-caret-position="4131">
+          <caret line="504" column="31" lean-forward="true" selection-start-line="504" selection-start-column="31" selection-end-line="504" selection-end-column="31" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
