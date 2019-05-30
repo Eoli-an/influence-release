@@ -172,8 +172,8 @@ class GenericNeuralNet(object):
 
     def get_vec_to_list_fn(self):
         params_val = self.sess.run(self.params)
-        print(params_val)
-        self.num_params = len(np.concatenate(params_val))        
+        #print(params_val)
+        self.num_params = len(np.column_stack(params_val))
         print('Total number of parameters: %s' % self.num_params)
 
 
