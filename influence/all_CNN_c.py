@@ -72,77 +72,15 @@ class All_CNN_C(GenericNeuralNet):
 
         return hidden
 
-    def dense_hidden(self, input_x, input_channels, output_channels, stride):
-        weights = variable_with_weight_decay(
-            'weights',
-            [input_channels * output_channels],
-            stddev=2.0 / math.sqrt(float(input_channels)),
-            wd=None)
-        biases = variable(
-            'biases',
-            [output_channels],
-            tf.constant_initializer(0.0))
-        weights_reshaped = tf.reshape(weights, [input_channels, output_channels])
-        hidden = tf.nn.relu(tf.nn.dense(input_x, weights_reshaped, stride) + biases)
-
-        return hidden
 
     def get_all_params(self):
 
-        model = Sequential()
-        output_size = 32
-        kernel_size = 3
-        new_output_size = 0
-
-        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(128, 128, 1)))
-        model.add(Activation("relu"))
-        new_output_size = output_size
-
-        model.add(Conv2D(output_size * (1 + 1), (kernel_size, kernel_size)))
-        model.add(Activation("relu"))
-        new_output_size = output_size * (1 + 1)
-
-        model.add(Flatten())
-
-        model.add(Dense(new_output_size * 4))
-        model.add(Activation("relu"))
-        for i in range(1, 2):
-            model.add(Dense(int((new_output_size * 4) / i)))
-            model.add(Activation("relu"))
-
-        model.add(Dense(4))
-        model.add(Activation("softmax"))
-
-        optimizer = optimizers.SGD(lr=0.0001)
-        model.compile(loss="categorical_crossentropy",
-                      optimizer=optimizer, metrics=['accuracy'])
-
-        #for layer in model.layers:
-           # print(layer.get_weights())
-        # print(model.layers)
-
-        first_layer_weights = model.layers[0].get_weights()[0]
-        first_layer_biases  = model.layers[0].get_weights()[1]
-
-        # print(first_layer_weights.shape)
-        # print(first_layer_biase)
-
-
 
         all_params = []
-        for layer in ['h1_a', 'softmax_linear']:
+        for layer in ['conv1', 'dense1','dense2','dense3']:
             for var_name in ['weights', 'biases']:
                 temp_tensor = tf.get_default_graph().get_tensor_by_name("%s/%s:0" % (layer, var_name))
-                print("ok")
-                print(temp_tensor.get_shape())
-                #print(temp_tensor.size)
-                t2 = tf.constant(42, shape=temp_tensor.shape)
                 all_params.append(temp_tensor)
-
-        #all_params.append(tf.constant([[1.0, 2.0], [3.0, 4.0]]))
-        all_params.append(t2)
-        all_params.append(first_layer_weights)
-        all_params.append(first_layer_biases)
         return all_params        
         
 
@@ -170,51 +108,60 @@ class All_CNN_C(GenericNeuralNet):
     def inference(self, input_x):
 
 
-
+        #input, which is a vector gets reshaped to an image
+        # -1 fuer anzahl bilder, input side für laenge/breite des bildes, channels für schwarzweiß, also 1
         input_reshaped = tf.reshape(input_x, [-1, self.input_side, self.input_side, self.input_channels])
         last_layer_units = 128
-        # Hidden 1
-        with tf.variable_scope('h1_a'):
-            h1_a = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
+        # first and only convolutional layer
+        with tf.variable_scope('conv1'):
+            # variablen definieren und conv und relu alles in einem schritt
+            conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
 
-        h2_d = tf.reduce_mean(h1_a, axis=[1, 2])
-
-        with tf.variable_scope('h1_c'):
-            h1_c = self.dense_hidden(h2_d, 32, 128, stride=2)
+        # jetzt muss reshaped werden damit das dense layer verbunden werden kann
+        conv1_reshaped = tf.reshape(conv1,[-1])
+        #conv1_reshaped= tf.reduce_mean(conv1, axis=[1, 2])
+        # first dense layer
+        with tf.variable_scope('dense1'):
+            # definition der weights
+            weights1 = variable(
+                'weights',
+                [128*128*32,128],
+                tf.truncated_normal_initializer(stddev=0.2))
+            #def der biases
+            biases1 = variable(
+                'biases',
+                [128],
+                tf.constant_initializer(0.0))
+            dense1 = tf.matmul(conv1_reshaped, weights1) + biases1
             
-        # Hidden 2
-        with tf.variable_scope('h2_a'):
-            h2_a = self.dense_hidden(h1_c, 128, 128, stride=1)
-        """   
-        with tf.variable_scope('h2_c'):
-            h2_c = self.conv2d_softplus(h2_a, self.conv_patch_size, self.hidden2_units, self.hidden2_units, stride=2)
-            
-        # Shared layers / hidden 3
-        with tf.variable_scope('h3_a'):
-            h3_a = self.conv2d_softplus(h2_c, self.conv_patch_size, self.hidden2_units, self.hidden3_units, stride=1)        
-        
-        
-        with tf.variable_scope('h3_c'):
-            h3_c = self.conv2d_softplus(h3_a, 1, self.hidden3_units, last_layer_units, stride=1)
-        
-        h3_d = tf.reduce_mean(h3_c, axis=[1, 2])
-        """
+        # second dense layer
+        with tf.variable_scope('dense2'):
+            weights2 = variable(
+                'weights',
+                [128,128],
+                tf.truncated_normal_initializer(stddev=0.2))
+            biases2 = variable(
+                'biases',
+                [128],
+                tf.constant_initializer(0.0))
+            dense2 = tf.matmul(dense1, weights2) + biases2
 
-        with tf.variable_scope('softmax_linear'):
+        # last dense layer, output layer
 
-            weights = variable_with_weight_decay(
+        with tf.variable_scope('dense3'):
+
+            weights3 = variable(
                 'weights', 
-                [last_layer_units * self.num_classes],
-                stddev=1.0 / math.sqrt(float(last_layer_units)),
-                wd=self.weight_decay)            
-            biases = variable(
+                [last_layer_units, self.num_classes],
+                tf.truncated_normal_initializer(stddev=0.2))
+            biases3 = variable(
                 'biases',
                 [self.num_classes],
                 tf.constant_initializer(0.0))
 
-            logits = tf.matmul(h2_a, tf.reshape(weights, [last_layer_units, self.num_classes])) + biases
+            dense3 = tf.matmul(dense2, weights3) + biases3
             
-        return logits
+        return dense3
 
     def predictions(self, logits):
         preds = tf.nn.softmax(logits, name='preds')
