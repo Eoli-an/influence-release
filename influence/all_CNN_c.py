@@ -118,7 +118,7 @@ class All_CNN_C(GenericNeuralNet):
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
 
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
-        conv1_reshaped = tf.reshape(conv1,[-1])
+        conv1_reshaped = tf.reshape(conv1,[-1,128*128*32])
         #conv1_reshaped= tf.reduce_mean(conv1, axis=[1, 2])
         # first dense layer
         with tf.variable_scope('dense1'):
