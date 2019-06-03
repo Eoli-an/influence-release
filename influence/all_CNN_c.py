@@ -125,26 +125,26 @@ class All_CNN_C(GenericNeuralNet):
             # definition der weights
             weights1 = variable(
                 'weights',
-                [21632,128],
+                [21632*128],
                 tf.truncated_normal_initializer(stddev=0.2))
             #def der biases
             biases1 = variable(
                 'biases',
                 [128],
                 tf.constant_initializer(0.0))
-            dense1 = tf.matmul(conv1_reshaped, weights1) + biases1
+            dense1 = tf.matmul(conv1_reshaped, tf.reshape(weights1,[21632,128])) + biases1
             
         # second dense layer
         with tf.variable_scope('dense2'):
             weights2 = variable(
                 'weights',
-                [128,128],
+                [128*128],
                 tf.truncated_normal_initializer(stddev=0.2))
             biases2 = variable(
                 'biases',
                 [128],
                 tf.constant_initializer(0.0))
-            dense2 = tf.matmul(dense1, weights2) + biases2
+            dense2 = tf.matmul(dense1, tf.reshape(weights2,[128,128])) + biases2
 
         # last dense layer, output layer
 
@@ -152,14 +152,14 @@ class All_CNN_C(GenericNeuralNet):
 
             weights3 = variable(
                 'weights', 
-                [last_layer_units, self.num_classes],
+                [last_layer_units* self.num_classes],
                 tf.truncated_normal_initializer(stddev=0.2))
             biases3 = variable(
                 'biases',
                 [self.num_classes],
                 tf.constant_initializer(0.0))
 
-            dense3 = tf.matmul(dense2, weights3) + biases3
+            dense3 = tf.matmul(dense2, tf.reshape(weights3,[last_layer_units,self.num_classes])) + biases3
         return dense3
 
     def predictions(self, logits):
