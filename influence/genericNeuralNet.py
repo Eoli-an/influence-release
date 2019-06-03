@@ -597,6 +597,7 @@ class GenericNeuralNet(object):
         fmin_grad_fn = self.get_fmin_grad_fn(v)
         cg_callback = self.get_cg_callback(train_idx, v, verbose)
         print(len(v))
+        print(v)
         fmin_results = fmin_ncg(
             f=fmin_loss_fn,
             x0=np.concatenate(v),
