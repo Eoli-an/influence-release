@@ -596,8 +596,8 @@ class GenericNeuralNet(object):
         fmin_loss_fn = self.get_fmin_loss_fn(v)
         fmin_grad_fn = self.get_fmin_grad_fn(v)
         cg_callback = self.get_cg_callback(train_idx, v, verbose)
-        print(len(v))
-        print(v)
+        #print(len(v))
+        #print(v)
         fmin_results = fmin_ncg(
             f=fmin_loss_fn,
             x0=np.concatenate(v),
@@ -640,7 +640,9 @@ class GenericNeuralNet(object):
 
         else:
             test_grad_loss_no_reg_val = self.minibatch_mean_eval([op], self.data_sets.test)[0]
-        
+
+        print(test_grad_loss_no_reg_val)
+        print(len(test_grad_loss_no_reg_val))
         return test_grad_loss_no_reg_val
 
 
