@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79007c87-7191-4db2-8c25-2713d848a2b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/influence/genericNeuralNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/influence/genericNeuralNet.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="661" column="9" selection-start-line="661" selection-start-column="9" selection-end-line="661" selection-end-column="9" />
+            <state relative-caret-position="465">
+              <caret line="614" column="9" lean-forward="true" selection-start-line="614" selection-start-column="9" selection-end-line="614" selection-end-column="9" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -106,6 +107,7 @@
       <find>get_all_params</find>
       <find>params</find>
       <find>hessian_ve</find>
+      <find>fmin_ncg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -214,18 +216,19 @@
       <workItem from="1558419592110" duration="644000" />
       <workItem from="1558505466808" duration="1593000" />
       <workItem from="1559026201662" duration="3788000" />
-      <workItem from="1559195087756" duration="7262000" />
+      <workItem from="1559195087756" duration="7861000" />
+      <workItem from="1559540275221" duration="1312000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18849000" />
+    <option name="totallyTimeSpent" value="20760000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2671141" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27114093" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -305,8 +308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="661" column="9" selection-start-line="661" selection-start-column="9" selection-end-line="661" selection-end-column="9" />
+        <state relative-caret-position="465">
+          <caret line="614" column="9" lean-forward="true" selection-start-line="614" selection-start-column="9" selection-end-line="614" selection-end-column="9" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
