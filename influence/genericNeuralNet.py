@@ -643,6 +643,8 @@ class GenericNeuralNet(object):
 
         print(test_grad_loss_no_reg_val)
         print(len(test_grad_loss_no_reg_val))
+        for x in test_grad_loss_no_reg_val:
+            print(x.shape)
         return test_grad_loss_no_reg_val
 
 
