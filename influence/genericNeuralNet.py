@@ -641,10 +641,10 @@ class GenericNeuralNet(object):
         else:
             test_grad_loss_no_reg_val = self.minibatch_mean_eval([op], self.data_sets.test)[0]
 
-        print(test_grad_loss_no_reg_val)
-        print(len(test_grad_loss_no_reg_val))
-        for x in test_grad_loss_no_reg_val:
-            print(x.shape)
+        #print(test_grad_loss_no_reg_val)
+        #print(len(test_grad_loss_no_reg_val))
+        #for x in test_grad_loss_no_reg_val:
+        #    print(x.shape)
         return test_grad_loss_no_reg_val
 
 
@@ -664,7 +664,7 @@ class GenericNeuralNet(object):
 
         test_grad_loss_no_reg_val = self.get_test_grad_loss_no_reg_val(test_indices, loss_type=loss_type)
 
-        #print('Norm of test gradient: %s' % np.linalg.norm(np.concatenate(test_grad_loss_no_reg_val)))
+        print('Norm of test gradient: %s' % np.linalg.norm(np.concatenate(test_grad_loss_no_reg_val)))
 
         start_time = time.time()
 
