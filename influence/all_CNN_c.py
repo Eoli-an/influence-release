@@ -69,7 +69,9 @@ class All_CNN_C(GenericNeuralNet):
             tf.constant_initializer(0.0))
         weights_reshaped = tf.reshape(weights, [conv_patch_size, conv_patch_size, input_channels, output_channels])
         hidden = tf.nn.relu(conv2d(input_x, weights_reshaped, stride) + biases)
-
+        print(weights.shape)
+        print(weights_reshaped.shape)
+        print(hidden.shape)
         return hidden
 
 
@@ -123,8 +125,7 @@ class All_CNN_C(GenericNeuralNet):
         with tf.variable_scope('conv1'):
             # variablen definieren und conv und relu alles in einem schritt
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
-            print(conv1.shape)
-            print(conv1.get_shape())
+            
 
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
         conv1_reshaped = tf.reshape(conv1,[-1,21632])
