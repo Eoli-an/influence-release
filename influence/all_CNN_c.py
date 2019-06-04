@@ -105,10 +105,12 @@ class All_CNN_C(GenericNeuralNet):
         return input_placeholder, labels_placeholder
 
     def test_keras_model(self):
-
+        a = 5
+        return a
 
     def get_initializers_of_keras(self):
-
+        b = 6
+        return b
 
     def inference(self, input_x):
 
