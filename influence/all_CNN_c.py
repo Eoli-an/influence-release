@@ -124,6 +124,7 @@ class All_CNN_C(GenericNeuralNet):
             # variablen definieren und conv und relu alles in einem schritt
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
             print(conv1.shape)
+            print(conv1.get_shape())
 
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
         conv1_reshaped = tf.reshape(conv1,[-1,21632])
