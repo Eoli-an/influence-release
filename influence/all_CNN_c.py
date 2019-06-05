@@ -56,26 +56,6 @@ class All_CNN_C(GenericNeuralNet):
 
         super(All_CNN_C, self).__init__(**kwargs)
 
-    def get_initializers_of_keras(self, model = None):
-        # get the weights of each layer and flatten them
-        weights1 = model.layers[0].get_weights()[0]
-        weights1 = weights1.flatten()
-        biases1 = model.layers[0].get_weights()[0]
-
-        weights2 = model.layers[3].get_weights()[0]
-        weights2 = weights2.flatten()
-        biases2 = model.layers[3].get_weights()[0]
-
-        weights3 = model.layers[5].get_weights()[0]
-        weights3 = weights3.flatten()
-        biases3 = model.layers[5].get_weights()[0]
-
-        weights4 = model.layers[7].get_weights()[0]
-        weights4 = weights4.flatten()
-        biases4 = model.layers[7].get_weights()[0]
-
-        return [weights1, biases1, weights2, biases2, weights3, biases3, weights4, biases4]
-
     def test_keras_model(self):
         model = Sequential()
         output_size = 32
@@ -102,6 +82,27 @@ class All_CNN_C(GenericNeuralNet):
                       optimizer=optimizer, metrics=['accuracy'])
 
         return model
+
+    def get_initializers_of_keras(self,model):
+        #get the weights of each layer and flatten them
+        weights1 = model.layers[0].get_weights()[0]
+        weights1 = weights1.flatten()
+        biases1 = model.layers[0].get_weights()[0]
+
+        weights2 = model.layers[3].get_weights()[0]
+        weights2 = weights2.flatten()
+        biases2 = model.layers[3].get_weights()[0]
+
+        weights3 = model.layers[5].get_weights()[0]
+        weights3 = weights3.flatten()
+        biases3 = model.layers[5].get_weights()[0]
+
+        weights4 = model.layers[7].get_weights()[0]
+        weights4 = weights4.flatten()
+        biases4 = model.layers[7].get_weights()[0]
+
+        return [weights1,biases1,weights2,biases2,weights3,biases3,weights4,biases4]
+
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
         model = self.test_keras_model()
