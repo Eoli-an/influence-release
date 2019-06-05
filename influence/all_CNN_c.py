@@ -199,13 +199,6 @@ class All_CNN_C(GenericNeuralNet):
             name='labels_placeholder')
         return input_placeholder, labels_placeholder
 
-    def test_keras_model(self):
-        a = 5
-        return a
-
-    def get_initializers_of_keras(self):
-        b = 6
-        return b
 
     def inference(self, input_x):
         model2 = self.test_keras_model2()
@@ -255,7 +248,7 @@ class All_CNN_C(GenericNeuralNet):
                 initializer=initializers[6])
             biases3 = tf.get_variable(
                  'biases',
-                initializer=initializers[5])
+                initializer=initializers[7])
 
             dense3 = tf.matmul(dense2, tf.reshape(weights3, [last_layer_units, self.num_classes])) + biases3
 
