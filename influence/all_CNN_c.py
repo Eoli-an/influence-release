@@ -83,6 +83,35 @@ class All_CNN_C(GenericNeuralNet):
         print("keras:")
         print(model.summary)
         return model
+
+    def test_keras_model2(self):
+        model = Sequential()
+        output_size = 32
+        kernel_size = 3
+        new_output_size = 0
+
+        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(128, 128, 1)))
+        model.add(Activation("relu"))
+        new_output_size = output_size
+
+        model.add(Flatten())
+
+        model.add(Dense(new_output_size * 4))
+        model.add(Activation("relu"))
+        for i in range(1, 2):
+            model.add(Dense(int((new_output_size * 4) / i)))
+            model.add(Activation("relu"))
+
+        model.add(Dense(4))
+        model.add(Activation("softmax"))
+
+        optimizer = optimizers.SGD(lr=0.0001)
+        model.compile(loss="categorical_crossentropy",
+                      optimizer=optimizer, metrics=['accuracy'])
+        print("keras:")
+        print(model.summary)
+        return model
+
     def wtf(self,stri):
         print(stri)
 
@@ -127,7 +156,7 @@ class All_CNN_C(GenericNeuralNet):
         return [weights1,biases1,weights2,biases2,weights3,biases3,weights4,biases4]
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
-        model2 = self.test_keras_model()
+        model2 = self.test_keras_model2()
         print("alter")
         print(model2.summary)
         self.wtf("abc")
