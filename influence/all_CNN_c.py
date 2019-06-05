@@ -80,8 +80,6 @@ class All_CNN_C(GenericNeuralNet):
         optimizer = optimizers.SGD(lr=0.0001)
         model.compile(loss="categorical_crossentropy",
                       optimizer=optimizer, metrics=['accuracy'])
-        print("keras:")
-        print(model.summary)
         return model
 
     def test_keras_model2(self):
@@ -108,12 +106,9 @@ class All_CNN_C(GenericNeuralNet):
         optimizer = optimizers.SGD(lr=0.0001)
         model.compile(loss="categorical_crossentropy",
                       optimizer=optimizer, metrics=['accuracy'])
-        print("keras:")
-        print(model.summary)
+
         return model
 
-    def wtf(self,stri):
-        print(stri)
 
     def get_initializers_of_keras(self,model,dummy):
         #get the weights of each layer and flatten them
@@ -158,9 +153,6 @@ class All_CNN_C(GenericNeuralNet):
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
         model2 = self.test_keras_model2()
-        print("alter")
-        print(model2.summary)
-        self.wtf("abc")
         initializers = self.get_initializers_of_keras2(model2)
 
         weights = tf.get_variable(
@@ -173,9 +165,6 @@ class All_CNN_C(GenericNeuralNet):
             tf.constant_initializer(0.0))
         weights_reshaped = tf.reshape(weights, [conv_patch_size, conv_patch_size, input_channels, output_channels])
         hidden = tf.nn.relu(conv2d(input_x, weights_reshaped, stride) + biases)
-        print(weights.shape)
-        print(weights_reshaped.shape)
-        print(hidden.shape)
         return hidden
 
 
