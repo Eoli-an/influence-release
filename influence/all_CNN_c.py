@@ -80,7 +80,8 @@ class All_CNN_C(GenericNeuralNet):
         optimizer = optimizers.SGD(lr=0.0001)
         model.compile(loss="categorical_crossentropy",
                       optimizer=optimizer, metrics=['accuracy'])
-
+        print("keras:")
+        print(model.summary)
         return model
     def wtf(self,stri):
         print(stri)
@@ -127,6 +128,7 @@ class All_CNN_C(GenericNeuralNet):
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
         model2 = self.test_keras_model()
+        print("alter")
         print(model2.summary)
         self.wtf("abc")
         initializers = self.get_initializers_of_keras2(model2)
