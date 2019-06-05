@@ -56,12 +56,60 @@ class All_CNN_C(GenericNeuralNet):
 
         super(All_CNN_C, self).__init__(**kwargs)
 
+    def get_initializers_of_keras(self, model):
+        # get the weights of each layer and flatten them
+        weights1 = model.layers[0].get_weights()[0]
+        weights1 = weights1.flatten()
+        biases1 = model.layers[0].get_weights()[0]
+
+        weights2 = model.layers[3].get_weights()[0]
+        weights2 = weights2.flatten()
+        biases2 = model.layers[3].get_weights()[0]
+
+        weights3 = model.layers[5].get_weights()[0]
+        weights3 = weights3.flatten()
+        biases3 = model.layers[5].get_weights()[0]
+
+        weights4 = model.layers[7].get_weights()[0]
+        weights4 = weights4.flatten()
+        biases4 = model.layers[7].get_weights()[0]
+
+        return [weights1, biases1, weights2, biases2, weights3, biases3, weights4, biases4]
+
+    def test_keras_model(self):
+        model = Sequential()
+        output_size = 32
+        kernel_size = 3
+        new_output_size = 0
+
+        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(128, 128, 1)))
+        model.add(Activation("relu"))
+        new_output_size = output_size
+
+        model.add(Flatten())
+
+        model.add(Dense(new_output_size * 4))
+        model.add(Activation("relu"))
+        for i in range(1, 2):
+            model.add(Dense(int((new_output_size * 4) / i)))
+            model.add(Activation("relu"))
+
+        model.add(Dense(4))
+        model.add(Activation("softmax"))
+
+        optimizer = optimizers.SGD(lr=0.0001)
+        model.compile(loss="categorical_crossentropy",
+                      optimizer=optimizer, metrics=['accuracy'])
+
+        return model
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
+        model = self.test_keras_model()
+        initiers = self.get_initializers_of_keras(model)
+
         weights = tf.get_variable(
-            'weights', 
-            [conv_patch_size * conv_patch_size * input_channels * output_channels],
-            initializer= tf.constant_initializer(0.0),
+            'weights',
+            initializer= initiers[0],
             dtype = tf.float32)
         biases = variable(
             'biases',
