@@ -82,6 +82,8 @@ class All_CNN_C(GenericNeuralNet):
                       optimizer=optimizer, metrics=['accuracy'])
 
         return model
+    def wtf(self,stri):
+        print(stri)
 
     def get_initializers_of_keras(self,model,dummy):
         #get the weights of each layer and flatten them
@@ -106,6 +108,7 @@ class All_CNN_C(GenericNeuralNet):
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
         model = self.test_keras_model()
+        self.wtf("abc")
         initializers = self.get_initializers_of_keras(model)
 
         weights = tf.get_variable(
