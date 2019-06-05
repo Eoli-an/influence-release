@@ -100,7 +100,7 @@ class All_CNN_C(GenericNeuralNet):
             model.add(Dense(int((new_output_size * 4) / i)))
             model.add(Activation("relu"))
 
-        model.add(Dense(4))
+        model.add(Dense(10))
         model.add(Activation("softmax"))
 
         optimizer = optimizers.SGD(lr=0.0001)
