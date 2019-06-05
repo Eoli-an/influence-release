@@ -55,8 +55,8 @@ class All_CNN_C(GenericNeuralNet):
         self.hidden3_units = hidden3_units
 
         super(All_CNN_C, self).__init__(**kwargs)
-
-    def get_initializers_of_keras(self, model):
+    @staticmethod
+    def get_initializers_of_keras( model):
         # get the weights of each layer and flatten them
         weights1 = model.layers[0].get_weights()[0]
         weights1 = weights1.flatten()
@@ -75,8 +75,8 @@ class All_CNN_C(GenericNeuralNet):
         biases4 = model.layers[7].get_weights()[0]
 
         return [weights1, biases1, weights2, biases2, weights3, biases3, weights4, biases4]
-
-    def test_keras_model(self):
+    @staticmethod
+    def test_keras_model():
         model = Sequential()
         output_size = 32
         kernel_size = 3
