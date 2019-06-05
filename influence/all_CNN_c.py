@@ -185,6 +185,7 @@ class All_CNN_C(GenericNeuralNet):
                 'biases',
                 initializer=initializers[3])
             dense1 = tf.matmul(conv1_reshaped, tf.reshape(weights1, [508032, 128])) + biases1
+            print(dense1.shape)
 
         # second dense layer
         with tf.variable_scope('dense2'):
