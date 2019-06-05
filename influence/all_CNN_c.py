@@ -56,31 +56,7 @@ class All_CNN_C(GenericNeuralNet):
 
         super(All_CNN_C, self).__init__(**kwargs)
 
-    def test_keras_model(self):
-        model = Sequential()
-        output_size = 32
-        kernel_size = 3
-        new_output_size = 0
 
-        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(128, 128, 1)))
-        model.add(Activation("relu"))
-        new_output_size = output_size
-
-        model.add(Flatten())
-
-        model.add(Dense(new_output_size * 4))
-        model.add(Activation("relu"))
-        for i in range(1, 2):
-            model.add(Dense(int((new_output_size * 4) / i)))
-            model.add(Activation("relu"))
-
-        model.add(Dense(4))
-        model.add(Activation("softmax"))
-
-        optimizer = optimizers.SGD(lr=0.0001)
-        model.compile(loss="categorical_crossentropy",
-                      optimizer=optimizer, metrics=['accuracy'])
-        return model
 
     def test_keras_model2(self):
         model = Sequential()
@@ -110,25 +86,6 @@ class All_CNN_C(GenericNeuralNet):
         return model
 
 
-    def get_initializers_of_keras(self,model,dummy):
-        #get the weights of each layer and flatten them
-        weights1 = model.layers[0].get_weights()[0]
-        weights1 = weights1.flatten()
-        biases1 = model.layers[0].get_weights()[0]
-
-        weights2 = model.layers[3].get_weights()[0]
-        weights2 = weights2.flatten()
-        biases2 = model.layers[3].get_weights()[0]
-
-        weights3 = model.layers[5].get_weights()[0]
-        weights3 = weights3.flatten()
-        biases3 = model.layers[5].get_weights()[0]
-
-        weights4 = model.layers[7].get_weights()[0]
-        weights4 = weights4.flatten()
-        biases4 = model.layers[7].get_weights()[0]
-
-        return [weights1,biases1,weights2,biases2,weights3,biases3,weights4,biases4]
 
     def get_initializers_of_keras2(self,model):
         #get the weights of each layer and flatten them
@@ -161,8 +118,8 @@ class All_CNN_C(GenericNeuralNet):
             dtype = tf.float32)
         biases = variable(
             'biases',
-            [output_channels],
-            tf.constant_initializer(0.0))
+            initializer=initializers[1],
+            dtype=tf.float32)
         weights_reshaped = tf.reshape(weights, [conv_patch_size, conv_patch_size, input_channels, output_channels])
         hidden = tf.nn.relu(conv2d(input_x, weights_reshaped, stride) + biases)
         return hidden
@@ -214,20 +171,21 @@ class All_CNN_C(GenericNeuralNet):
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
 
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
-        conv1_reshaped = tf.reshape(conv1, [-1, 21632])
+        # größe des outputs des conv layers passt sich dem input an(größe des bildes)
+        conv1_reshaped = tf.reshape(conv1, [-1, 508032])
         # conv1_reshaped= tf.reduce_mean(conv1, axis=[1, 2])
         # first dense layer
         with tf.variable_scope('dense1'):
             # definition der weights
             weights1 = tf.get_variable(
                 'weights',
-                shape=[21632 * 128],
-                initializer=tf.truncated_normal_initializer(stddev=0.2))
+                shape=[508032 * 128],
+                initializer=initializers[2])
             # def der biases
             biases1 = tf.get_variable(
                 'biases',
                 shape=[128],
-                initializer=tf.constant_initializer(0.0))
+                initializer=initializers[3])
             dense1 = tf.matmul(conv1_reshaped, tf.reshape(weights1, [21632, 128])) + biases1
 
         # second dense layer
