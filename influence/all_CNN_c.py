@@ -106,7 +106,7 @@ class All_CNN_C(GenericNeuralNet):
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
         model = self.test_keras_model()
-        initiers = self.get_initializers_of_keras(model=model)
+        initializers = self.get_initializers_of_keras(model)
 
         weights = tf.get_variable(
             'weights',
