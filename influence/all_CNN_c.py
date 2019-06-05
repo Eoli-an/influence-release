@@ -155,6 +155,7 @@ class All_CNN_C(GenericNeuralNet):
 
         return [weights1,biases1,weights2,biases2,weights3,biases3,weights4,biases4]
 
+
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
         model2 = self.test_keras_model2()
         print("alter")
