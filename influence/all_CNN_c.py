@@ -173,7 +173,8 @@ class All_CNN_C(GenericNeuralNet):
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
         # groesse des outputs des conv layers passt sich dem input an(groesse des bildes)
         conv1_reshaped = tf.reshape(conv1, [-1, 508032])
-        conv1_reshaped = tf.reshape(conv1,[-1])
+        #conv1_reshaped = tf.reshape(conv1,[-1])
+        print(conv1.shape)
         print(tf.reshape(conv1,[-1]).shape)
         # conv1_reshaped= tf.reduce_mean(conv1, axis=[1, 2])
         # first dense layer
