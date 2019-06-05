@@ -91,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="186" column="75" selection-start-line="186" selection-start-column="75" selection-end-line="186" selection-end-column="75" />
+            <state relative-caret-position="315">
+              <caret line="175" column="34" selection-start-line="175" selection-start-column="34" selection-end-line="175" selection-end-column="34" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -234,7 +234,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29829000" />
+    <option name="totallyTimeSpent" value="30413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -320,8 +320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="186" column="75" selection-start-line="186" selection-start-column="75" selection-end-line="186" selection-end-column="75" />
+        <state relative-caret-position="315">
+          <caret line="175" column="34" selection-start-line="175" selection-start-column="34" selection-end-line="175" selection-end-column="34" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
