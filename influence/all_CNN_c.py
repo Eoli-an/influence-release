@@ -208,7 +208,8 @@ class All_CNN_C(GenericNeuralNet):
         return b
 
     def inference(self, input_x):
-
+        model2 = self.test_keras_model2()
+        initializers = self.get_initializers_of_keras2(model2)
 
         #input, which is a vector gets reshaped to an image
         # -1:amount of pictures, input side:lenght/width channesl:black n white
@@ -218,53 +219,48 @@ class All_CNN_C(GenericNeuralNet):
         with tf.variable_scope('conv1'):
             # variablen definieren und conv und relu alles in einem schritt
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 32, stride=1)
-            
 
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
-        conv1_reshaped = tf.reshape(conv1,[-1,21632])
-        #conv1_reshaped= tf.reduce_mean(conv1, axis=[1, 2])
+        conv1_reshaped = tf.reshape(conv1, [-1, 21632])
+        # conv1_reshaped= tf.reduce_mean(conv1, axis=[1, 2])
         # first dense layer
         with tf.variable_scope('dense1'):
             # definition der weights
-            weights1 = variable(
+            weights1 = tf.get_variable(
                 'weights',
-                [21632*128],
-                tf.truncated_normal_initializer(stddev=0.2))
-            #def der biases
-            biases1 = variable(
+                shape=[21632 * 128],
+                initializer=tf.truncated_normal_initializer(stddev=0.2))
+            # def der biases
+            biases1 = tf.get_variable(
                 'biases',
-                [128],
-                tf.constant_initializer(0.0))
-            dense1 = tf.matmul(conv1_reshaped, tf.reshape(weights1,[21632,128])) + biases1
-            
+                shape=[128],
+                initializer=tf.constant_initializer(0.0))
+            dense1 = tf.matmul(conv1_reshaped, tf.reshape(weights1, [21632, 128])) + biases1
+
         # second dense layer
         with tf.variable_scope('dense2'):
-            weights2 = variable(
+            weights2 = tf.get_variable(
                 'weights',
-                [128*128],
-                tf.truncated_normal_initializer(stddev=0.2))
-            biases2 = variable(
+                initializer=initializers[4])
+            biases2 = tf.get_variable(
                 'biases',
-                [128],
-                tf.constant_initializer(0.0))
-            dense2 = tf.matmul(dense1, tf.reshape(weights2,[128,128])) + biases2
+                initializer=initializers[5])
+            dense2 = tf.matmul(dense1, tf.reshape(weights2, [128, 128])) + biases2
 
         # last dense layer, output layer
 
         with tf.variable_scope('dense3'):
+            weights3 = tf.get_variable(
+                'weights',
+                initializer=initializers[6])
+            biases3 = tf.get_variable(
+                 'biases',
+                initializer=initializers[5])
 
-            weights3 = variable(
-                'weights', 
-                [last_layer_units* self.num_classes],
-                tf.truncated_normal_initializer(stddev=0.2))
-            biases3 = variable(
-                'biases',
-                [self.num_classes],
-                tf.constant_initializer(0.0))
+            dense3 = tf.matmul(dense2, tf.reshape(weights3, [last_layer_units, self.num_classes])) + biases3
 
-            dense3 = tf.matmul(dense2, tf.reshape(weights3,[last_layer_units,self.num_classes])) + biases3
         return dense3
 
-    def predictions(self, logits):
-        preds = tf.nn.softmax(logits, name='preds')
-        return preds
+def predictions(self, logits):
+    preds = tf.nn.softmax(logits, name='preds')
+    return preds
