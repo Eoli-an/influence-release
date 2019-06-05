@@ -83,7 +83,7 @@ class All_CNN_C(GenericNeuralNet):
 
         return model
 
-    def get_initializers_of_keras(self,model):
+    def get_initializers_of_keras(self,model,dummy):
         #get the weights of each layer and flatten them
         weights1 = model.layers[0].get_weights()[0]
         weights1 = weights1.flatten()
@@ -110,7 +110,7 @@ class All_CNN_C(GenericNeuralNet):
 
         weights = tf.get_variable(
             'weights',
-            initializer= initiers[0],
+            initializer= initializers [0],
             dtype = tf.float32)
         biases = variable(
             'biases',
