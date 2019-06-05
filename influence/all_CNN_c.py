@@ -254,6 +254,6 @@ class All_CNN_C(GenericNeuralNet):
 
         return dense3
 
-def predictions(self, logits):
-    preds = tf.nn.softmax(logits, name='preds')
-    return preds
+    def predictions(self, logits):
+        preds = tf.nn.softmax(logits, name='preds')
+        return preds
