@@ -58,11 +58,10 @@ class All_CNN_C(GenericNeuralNet):
 
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, stride):
-        weights = variable_with_weight_decay(
+        weights = variable(
             'weights', 
             [conv_patch_size * conv_patch_size * input_channels * output_channels],
-            stddev=2.0 / math.sqrt(float(conv_patch_size * conv_patch_size * input_channels)),
-            wd=None)
+            tf.constant_initializer(0.0))
         biases = variable(
             'biases',
             [output_channels],
