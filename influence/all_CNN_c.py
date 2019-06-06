@@ -172,7 +172,7 @@ class All_CNN_C(GenericNeuralNet):
 
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
         # groesse des outputs des conv layers passt sich dem input an(groesse des bildes)
-        conv1_reshaped = tf.reshape(conv1, [-1, (last_layer_units-2)*(last_layer_units-2)*32])
+        conv1_reshaped = tf.reshape(conv1, [-1, (self.input_side-2)*(self.input_side-2)*32])
         #conv1_reshaped = tf.reshape(conv1,[-1])
         #print(conv1.shape)
         #print(tf.reshape(conv1,[-1]).shape)
@@ -187,7 +187,7 @@ class All_CNN_C(GenericNeuralNet):
             biases1 = tf.get_variable(
                 'biases',
                 initializer=initializers[3])
-            dense1 = tf.matmul(conv1_reshaped,tf.reshape(weights1, [(last_layer_units-2)*(last_layer_units-2)*32, 128]) ) + biases1
+            dense1 = tf.matmul(conv1_reshaped,tf.reshape(weights1, [(self.input_side-2)*(self.input_side-2)*32, 128]) ) + biases1
 
 
         # second dense layer
