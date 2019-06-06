@@ -187,8 +187,12 @@ class All_CNN_C(GenericNeuralNet):
             biases1 = tf.get_variable(
                 'biases',
                 initializer=initializers[3])
+            print("conv1 reshape")
             print(conv1_reshaped.shape)
+            print("bias 1")
+            print(biases1.shape)
             dense1 = tf.matmul(conv1_reshaped,tf.reshape(weights1, [508032, 128]),transpose_a =True ) + biases1
+            print("dense 1")
             print(dense1.shape)
 
         # second dense layer
@@ -199,6 +203,8 @@ class All_CNN_C(GenericNeuralNet):
             biases2 = tf.get_variable(
                 'biases',
                 initializer=initializers[5])
+            print("bias 2")
+            print(biases2.shape)
             dense2 = tf.nn.bias_add(tf.matmul(dense1, tf.reshape(weights2, [128, 128])) , biases2)
 
         # last dense layer, output layer
