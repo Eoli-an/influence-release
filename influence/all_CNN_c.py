@@ -91,19 +91,19 @@ class All_CNN_C(GenericNeuralNet):
         #get the weights of each layer and flatten them
         weights1 = model.layers[0].get_weights()[0]
         weights1 = weights1.flatten()
-        biases1 = model.layers[0].get_weights()[0]
+        biases1 = model.layers[0].get_weights()[1]
 
         weights2 = model.layers[3].get_weights()[0]
         weights2 = weights2.flatten()
-        biases2 = model.layers[3].get_weights()[0]
+        biases2 = model.layers[3].get_weights()[1]
 
         weights3 = model.layers[5].get_weights()[0]
         weights3 = weights3.flatten()
-        biases3 = model.layers[5].get_weights()[0]
+        biases3 = model.layers[5].get_weights()[1]
 
         weights4 = model.layers[7].get_weights()[0]
         weights4 = weights4.flatten()
-        biases4 = model.layers[7].get_weights()[0]
+        biases4 = model.layers[7].get_weights()[1]
 
         return [weights1,biases1,weights2,biases2,weights3,biases3,weights4,biases4]
 
@@ -191,7 +191,7 @@ class All_CNN_C(GenericNeuralNet):
             print(conv1_reshaped.shape)
             print("bias 1")
             print(biases1.shape)
-            dense1 = tf.matmul(conv1_reshaped,tf.reshape(weights1, [508032, 128]),transpose_a =True ) + biases1
+            dense1 = tf.matmul(conv1_reshaped,tf.reshape(weights1, [508032, 128]) ) + biases1
             print("dense 1")
             print(dense1.shape)
 
@@ -205,7 +205,7 @@ class All_CNN_C(GenericNeuralNet):
                 initializer=initializers[5])
             print("bias 2")
             print(biases2.shape)
-            dense2 = tf.nn.bias_add(tf.matmul(dense1, tf.reshape(weights2, [128, 128])) , biases2)
+            dense2 = tf.matmul(dense1, tf.reshape(weights2, [128, 128])) + biases2
 
         # last dense layer, output layer
 
