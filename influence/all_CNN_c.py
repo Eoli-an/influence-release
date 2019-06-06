@@ -164,7 +164,7 @@ class All_CNN_C(GenericNeuralNet):
         #input, which is a vector gets reshaped to an image
         # -1:amount of pictures, input side:lenght/width channesl:black n white
         input_reshaped = tf.reshape(input_x, [-1, self.input_side, self.input_side, self.input_channels])
-        last_layer_units = 128
+        last_layer_units = 28
         # first and only convolutional layer
         with tf.variable_scope('conv1'):
             # variablen definieren und conv und relu alles in einem schritt
@@ -172,7 +172,7 @@ class All_CNN_C(GenericNeuralNet):
 
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
         # groesse des outputs des conv layers passt sich dem input an(groesse des bildes)
-        conv1_reshaped = tf.reshape(conv1, [-1, 508032])
+        conv1_reshaped = tf.reshape(conv1, [-1, (last_layer_units-2)*(last_layer_units-2)*32])
         #conv1_reshaped = tf.reshape(conv1,[-1])
         #print(conv1.shape)
         #print(tf.reshape(conv1,[-1]).shape)
@@ -187,13 +187,8 @@ class All_CNN_C(GenericNeuralNet):
             biases1 = tf.get_variable(
                 'biases',
                 initializer=initializers[3])
-            print("conv1 reshape")
-            print(conv1_reshaped.shape)
-            print("bias 1")
-            print(biases1.shape)
-            dense1 = tf.matmul(conv1_reshaped,tf.reshape(weights1, [508032, 128]) ) + biases1
-            print("dense 1")
-            print(dense1.shape)
+            dense1 = tf.matmul(conv1_reshaped,tf.reshape(weights1, [(last_layer_units-2)*(last_layer_units-2)*32, 128]) ) + biases1
+
 
         # second dense layer
         with tf.variable_scope('dense2'):
@@ -203,8 +198,6 @@ class All_CNN_C(GenericNeuralNet):
             biases2 = tf.get_variable(
                 'biases',
                 initializer=initializers[5])
-            print("bias 2")
-            print(biases2.shape)
             dense2 = tf.matmul(dense1, tf.reshape(weights2, [128, 128])) + biases2
 
         # last dense layer, output layer
