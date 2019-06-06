@@ -164,7 +164,7 @@ class All_CNN_C(GenericNeuralNet):
         #input, which is a vector gets reshaped to an image
         # -1:amount of pictures, input side:lenght/width channesl:black n white
         input_reshaped = tf.reshape(input_x, [-1, self.input_side, self.input_side, self.input_channels])
-        last_layer_units = 28
+        last_layer_units = 128
         # first and only convolutional layer
         with tf.variable_scope('conv1'):
             # variablen definieren und conv und relu alles in einem schritt
