@@ -199,7 +199,7 @@ class All_CNN_C(GenericNeuralNet):
             biases2 = tf.get_variable(
                 'biases',
                 initializer=initializers[5])
-            dense2 = tf.transpose(tf.matmul(dense1, tf.reshape(weights2, [128, 128]))) + biases2
+            dense2 = tf.nn.bias_add(tf.matmul(dense1, tf.reshape(weights2, [128, 128])) , biases2)
 
         # last dense layer, output layer
 
