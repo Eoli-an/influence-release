@@ -64,7 +64,7 @@ class All_CNN_C(GenericNeuralNet):
         kernel_size = 3
         new_output_size = 0
 
-        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(128, 128, 1)))
+        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(28, 28, 1)))
         model.add(Activation("relu"))
         new_output_size = output_size
 

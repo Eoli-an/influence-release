@@ -91,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="189" column="112" selection-start-line="189" selection-start-column="112" selection-end-line="189" selection-end-column="112" />
+            <state relative-caret-position="213">
+              <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -230,12 +230,12 @@
       <workItem from="1559026201662" duration="3788000" />
       <workItem from="1559195087756" duration="7861000" />
       <workItem from="1559540275221" duration="2771000" />
-      <workItem from="1559803297010" duration="2993000" />
+      <workItem from="1559803297010" duration="3139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34845000" />
+    <option name="totallyTimeSpent" value="34991000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -330,8 +330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="189" column="112" selection-start-line="189" selection-start-column="112" selection-end-line="189" selection-end-column="112" />
+        <state relative-caret-position="213">
+          <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
