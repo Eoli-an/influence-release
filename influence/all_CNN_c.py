@@ -64,7 +64,7 @@ class All_CNN_C(GenericNeuralNet):
         kernel_size = 3
         new_output_size = 0
 
-        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(28, 28, 1)))
+        model.add(Conv2D(output_size, (kernel_size, kernel_size), input_shape=(128, 128, 1)))
         model.add(Activation("relu"))
         new_output_size = output_size
 
@@ -76,7 +76,7 @@ class All_CNN_C(GenericNeuralNet):
             model.add(Dense(int((new_output_size * 4) / i)))
             model.add(Activation("relu"))
 
-        model.add(Dense(10))
+        model.add(Dense(4))
         model.add(Activation("softmax"))
 
         optimizer = optimizers.SGD(lr=0.0001)
@@ -173,7 +173,7 @@ class All_CNN_C(GenericNeuralNet):
         # jetzt muss reshaped werden damit das dense layer verbunden werden kann
         # groesse des outputs des conv layers passt sich dem input an(groesse des bildes)
         conv1_reshaped = tf.reshape(conv1, [-1, (self.input_side-2)*(self.input_side-2)*32])
-        
+
         # first dense layer
         with tf.variable_scope('dense1'):
             # definition der weights
