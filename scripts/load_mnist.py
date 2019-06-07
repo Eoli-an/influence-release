@@ -113,6 +113,7 @@ def load_mnist(train_dir, validation_size=5000):
   return base.Datasets(train=train, validation=validation, test=test)
 
 def load_small_mnist(train_dir, validation_size=500, random_seed=0):
+  print("ok")
   np.random.seed(random_seed)
   data_sets = load_mnist(train_dir, validation_size)
 
