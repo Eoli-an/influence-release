@@ -359,7 +359,7 @@ class GenericNeuralNet(object):
         sess = self.sess            
 
         for step in xrange(num_steps):
-            self.update_learning_rate(step)
+            #self.update_learning_rate(step)
 
             start_time = time.time()
 

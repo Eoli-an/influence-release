@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79007c87-7191-4db2-8c25-2713d848a2b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/influence/all_CNN_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/influence/all_CNN_c.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/influence/genericNeuralNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/influence/genericNeuralNet.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="29" column="12" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="12" />
+            <state relative-caret-position="352">
+              <caret line="361" column="13" selection-start-line="361" selection-start-column="13" selection-end-line="361" selection-end-column="13" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -89,7 +88,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1479">
@@ -132,8 +131,8 @@
         <option value="$PROJECT_DIR$/scripts/test.py" />
         <option value="$PROJECT_DIR$/influence/inception_v3.py" />
         <option value="$PROJECT_DIR$/scripts/load_mnist.py" />
-        <option value="$PROJECT_DIR$/influence/genericNeuralNet.py" />
         <option value="$PROJECT_DIR$/influence/all_CNN_c.py" />
+        <option value="$PROJECT_DIR$/influence/genericNeuralNet.py" />
       </list>
     </option>
   </component>
@@ -231,12 +230,12 @@
       <workItem from="1559026201662" duration="3788000" />
       <workItem from="1559195087756" duration="7861000" />
       <workItem from="1559540275221" duration="2771000" />
-      <workItem from="1559803297010" duration="5056000" />
+      <workItem from="1559803297010" duration="5351000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36908000" />
+    <option name="totallyTimeSpent" value="37203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -310,16 +309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/influence/binaryLogisticRegressionWithLBFGS.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -333,6 +322,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1479">
           <caret line="66" column="85" selection-start-line="66" selection-start-column="85" selection-end-line="66" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="361" column="13" selection-start-line="361" selection-start-column="13" selection-end-line="361" selection-end-column="13" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
