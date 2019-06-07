@@ -104,6 +104,8 @@ def load_mnist(train_dir, validation_size=5000):
   validation_images = validation_images.astype(np.float32) / 255
   test_images = test_images.astype(np.float32) / 255
 
+  print(train_labels.shape)
+
   train = DataSet(train_images, train_labels)
   validation = DataSet(validation_images, validation_labels)
   test = DataSet(test_images, test_labels)
