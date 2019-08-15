@@ -236,7 +236,7 @@ class All_CNN_C(GenericNeuralNet):
         return input_placeholder, labels_placeholder
 
     def maxpool2d(x, k=2):
-        return tf.nn.max_pool(x, ksize=[-1, 126, 126, 82], strides=[-1, 126, 126, 82], padding='SAME')
+        return tf.nn.max_pool(x, ksize=[1, k, k, 1], strides=[1, k, k, 1], padding='SAME')
 
 
     def inference(self, input_x):
@@ -250,23 +250,23 @@ class All_CNN_C(GenericNeuralNet):
         with tf.variable_scope('conv1'):
             # variablen definieren und conv und relu alles in einem schritt
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 82, 0,stride=1)
-        conv1 = self.maxpool2d(conv1)
+            conv1 = self.maxpool2d(conv1)
 
         with tf.variable_scope('conv2'):
             # variablen definieren und conv und relu alles in einem schritt
             conv2 = self.conv2d_softplus(conv1, self.conv_patch_size, self.input_channels, 253,2, stride=1)
 
-        conv2 = self.maxpool2d(conv2)
+            conv2 = self.maxpool2d(conv2)
         with tf.variable_scope('conv3'):
             # variablen definieren und conv und relu alles in einem schritt
             conv3 = self.conv2d_softplus(conv2, self.conv_patch_size, self.input_channels, 85,4, stride=1)
-        conv3 = self.maxpool2d(conv3)
+            conv3 = self.maxpool2d(conv3)
 
         with tf.variable_scope('conv4'):
             # variablen definieren und conv und relu alles in einem schritt
             conv4 = self.conv2d_softplus(conv3, self.conv_patch_size, self.input_channels, 60,6, stride=1)
 
-        conv4 = self.maxpool2d(conv4)
+            conv4 = self.maxpool2d(conv4)
 
         conv_reshaped = tf.reshape(conv4, [-1, (self.input_side - 2) * (self.input_side - 2) * 60])
 
