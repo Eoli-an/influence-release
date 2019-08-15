@@ -13,7 +13,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import scipy.linalg as slin
 import scipy.sparse.linalg as sparselin
-import scipy.sparse as sparse 
+import scipy.sparse as sparse
+import os
 
 import os.path
 import time
@@ -219,7 +220,9 @@ class All_CNN_C(GenericNeuralNet):
 
 
     def inference(self, input_x):
-        model2 = keras.models.load_model("data/final_net.h5")
+
+        #model2 = keras.models.load_model("data/final_net.h5")
+        model2 = self.test_keras_model2()
         initializers = self.get_initializers_of_keras2(model2)
         input_reshaped = tf.reshape(input_x, [-1, self.input_side, self.input_side, self.input_channels])
         last_layer_units = 128
