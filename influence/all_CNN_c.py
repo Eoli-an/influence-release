@@ -15,7 +15,7 @@ import scipy.linalg as slin
 import scipy.sparse.linalg as sparselin
 import scipy.sparse as sparse
 import os
-
+from keras.regularizers import l2
 import os.path
 import time
 import IPython
