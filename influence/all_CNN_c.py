@@ -268,7 +268,7 @@ class All_CNN_C(GenericNeuralNet):
             conv4 = self.conv2d_softplus(conv3, self.conv_patch_size, 85, 60,6, stride=1)
             conv4 = tf.nn.max_pool(conv4, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
 
-        conv_reshaped = tf.reshape(conv4, [-1, (self.input_side - 2) * (self.input_side - 2) * 60])
+        conv_reshaped = tf.reshape(conv4, [-1, 2160])
 
         with tf.variable_scope('dense1'):
             # definition der weights
