@@ -252,7 +252,8 @@ class All_CNN_C(GenericNeuralNet):
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 82, 0,stride=1)
             print(conv1.shape)
             print(conv1)
-            conv1 = self.maxpool2d(conv1)
+            conv1 = tf.nn.max_pool(conv1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
+            #conv1 = self.maxpool2d(conv1)
 
         with tf.variable_scope('conv2'):
             # variablen definieren und conv und relu alles in einem schritt
