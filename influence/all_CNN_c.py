@@ -260,12 +260,12 @@ class All_CNN_C(GenericNeuralNet):
             conv2 = tf.nn.max_pool(conv2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
         with tf.variable_scope('conv3'):
             # variablen definieren und conv und relu alles in einem schritt
-            conv3 = self.conv2d_softplus(conv2, self.conv_patch_size, self.input_channels, 85,4, stride=1)
+            conv3 = self.conv2d_softplus(conv2, self.conv_patch_size, 253, 85,4, stride=1)
             conv3 = tf.nn.max_pool(conv3, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
 
         with tf.variable_scope('conv4'):
             # variablen definieren und conv und relu alles in einem schritt
-            conv4 = self.conv2d_softplus(conv3, self.conv_patch_size, self.input_channels, 60,6, stride=1)
+            conv4 = self.conv2d_softplus(conv3, self.conv_patch_size, 85, 60,6, stride=1)
             conv4 = tf.nn.max_pool(conv4, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
 
         conv_reshaped = tf.reshape(conv4, [-1, (self.input_side - 2) * (self.input_side - 2) * 60])
