@@ -250,6 +250,7 @@ class All_CNN_C(GenericNeuralNet):
         with tf.variable_scope('conv1'):
             # variablen definieren und conv und relu alles in einem schritt
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 82, 0,stride=1)
+            print(conv1.shape)
             conv1 = self.maxpool2d(conv1)
 
         with tf.variable_scope('conv2'):
