@@ -195,11 +195,11 @@ class All_CNN_C(GenericNeuralNet):
         weights = tf.get_variable(
             'weights',
             initializer= initializers [index],
-            dtype = tf.float32)
+            dtype = tf.int32)
         biases = tf.get_variable(
             'biases',
             initializer=initializers[index + 1],
-            dtype=tf.float32)
+            dtype=tf.int32)
         weights_reshaped = tf.reshape(weights, [conv_patch_size, conv_patch_size, input_channels, output_channels])
         hidden = tf.nn.tanh(conv2d(input_x, weights_reshaped, stride) + biases)
         return hidden
