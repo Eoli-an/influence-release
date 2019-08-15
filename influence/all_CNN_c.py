@@ -236,7 +236,7 @@ class All_CNN_C(GenericNeuralNet):
         return input_placeholder, labels_placeholder
 
     def maxpool2d(x, k=2):
-        return tf.nn.max_pool(x, ksize=[1, k, k, 1], strides=[1, k, k, 1], padding='SAME')
+        return tf.nn.max_pool(x, ksize=[1, k, k, 1], strides=[1, k, k, 1], padding='VALID')
 
 
     def inference(self, input_x):
