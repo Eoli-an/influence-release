@@ -91,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="256" lean-forward="true" selection-start-line="256" selection-end-line="256" />
+            <state relative-caret-position="550">
+              <caret line="257" column="72" selection-start-line="257" selection-start-column="72" selection-end-line="257" selection-end-column="72" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -113,7 +113,6 @@
     <findStrings>
       <find>get_inv</find>
       <find>get_inverse_hv</find>
-      <find>conv2d</find>
       <find>get_all_params</find>
       <find>params</find>
       <find>hessian_ve</find>
@@ -124,6 +123,7 @@
       <find>hidden2_</find>
       <find>all_para</find>
       <find>h5</find>
+      <find>conv2d</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -240,12 +240,12 @@
       <workItem from="1561017496300" duration="617000" />
       <workItem from="1563260521269" duration="6000" />
       <workItem from="1565776059986" duration="4059000" />
-      <workItem from="1565853609748" duration="8547000" />
+      <workItem from="1565853609748" duration="9792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53723000" />
+    <option name="totallyTimeSpent" value="54968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -340,8 +340,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="256" lean-forward="true" selection-start-line="256" selection-end-line="256" />
+        <state relative-caret-position="550">
+          <caret line="257" column="72" selection-start-line="257" selection-start-column="72" selection-end-line="257" selection-end-column="72" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

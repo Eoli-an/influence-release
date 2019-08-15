@@ -200,6 +200,7 @@ class All_CNN_C(GenericNeuralNet):
             'biases',
             initializer=initializers[index + 1],
             dtype=tf.float32)
+        print(weights.shape)
         weights_reshaped = tf.reshape(weights, [conv_patch_size, conv_patch_size, input_channels, output_channels])
         hidden = tf.nn.tanh(conv2d(input_x, weights_reshaped, stride) + biases)
         return hidden
@@ -250,26 +251,22 @@ class All_CNN_C(GenericNeuralNet):
         with tf.variable_scope('conv1'):
             # variablen definieren und conv und relu alles in einem schritt
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 82, 0,stride=1)
-            print(conv1.shape)
-            print(conv1)
             conv1 = tf.nn.max_pool(conv1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
-            #conv1 = self.maxpool2d(conv1)
 
         with tf.variable_scope('conv2'):
             # variablen definieren und conv und relu alles in einem schritt
-            conv2 = self.conv2d_softplus(conv1, self.conv_patch_size, self.input_channels, 253,2, stride=1)
+            conv2 = self.conv2d_softplus(conv1, self.conv_patch_size, 82, 253,2, stride=1)
 
-            conv2 = self.maxpool2d(conv2)
+            conv2 = tf.nn.max_pool(conv2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
         with tf.variable_scope('conv3'):
             # variablen definieren und conv und relu alles in einem schritt
             conv3 = self.conv2d_softplus(conv2, self.conv_patch_size, self.input_channels, 85,4, stride=1)
-            conv3 = self.maxpool2d(conv3)
+            conv3 = tf.nn.max_pool(conv3, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
 
         with tf.variable_scope('conv4'):
             # variablen definieren und conv und relu alles in einem schritt
             conv4 = self.conv2d_softplus(conv3, self.conv_patch_size, self.input_channels, 60,6, stride=1)
-
-            conv4 = self.maxpool2d(conv4)
+            conv4 = tf.nn.max_pool(conv4, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
 
         conv_reshaped = tf.reshape(conv4, [-1, (self.input_side - 2) * (self.input_side - 2) * 60])
 
