@@ -195,11 +195,11 @@ class All_CNN_C(GenericNeuralNet):
         weights = tf.get_variable(
             'weights',
             initializer= initializers [index],
-            dtype = tf.int32)
+            dtype = tf.float32)
         biases = tf.get_variable(
             'biases',
             initializer=initializers[index + 1],
-            dtype=tf.int32)
+            dtype=tf.float32)
         weights_reshaped = tf.reshape(weights, [conv_patch_size, conv_patch_size, input_channels, output_channels])
         hidden = tf.nn.tanh(conv2d(input_x, weights_reshaped, stride) + biases)
         return hidden
@@ -251,6 +251,7 @@ class All_CNN_C(GenericNeuralNet):
             # variablen definieren und conv und relu alles in einem schritt
             conv1 = self.conv2d_softplus(input_reshaped, self.conv_patch_size, self.input_channels, 82, 0,stride=1)
             print(conv1.shape)
+            print(conv1)
             conv1 = self.maxpool2d(conv1)
 
         with tf.variable_scope('conv2'):
