@@ -44,11 +44,7 @@ from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau, T
 import keras
 from keras.utils import multi_gpu_model
 from time import time
-from modules.controller.commands.module import Module
-from modules.exception.exceptions import IOException
-from modules.shared.loader import Loader
-from modules.view.output_service import OutputService
-from modules.shared.configurations import Configurations
+
 import os
 import tensorflow as tf
 from keras import backend as K
