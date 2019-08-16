@@ -548,7 +548,7 @@ class GenericNeuralNet(object):
 
         def get_fmin_loss(x):
             hessian_vector_val = self.minibatch_hessian_vector_val(self.vec_to_list(x))
-
+            print(hessian_vector_val.shape)
             return 0.5 * np.dot(np.concatenate(hessian_vector_val), x) - np.dot(np.concatenate(v), x)
         return get_fmin_loss
 
@@ -594,13 +594,13 @@ class GenericNeuralNet(object):
 
 
     def get_inverse_hvp_cg(self, train_idx, v, verbose):
-        print("aaaaaaaaaaa")
+
         fmin_loss_fn = self.get_fmin_loss_fn(v)
         fmin_grad_fn = self.get_fmin_grad_fn(v)
         cg_callback = self.get_cg_callback(train_idx, v, verbose)
         #print(len(v))
         #print(v)
-        print("okokokokok")
+
         fmin_results = fmin_ncg(
             f=fmin_loss_fn,
             x0=np.concatenate(v),
@@ -609,7 +609,7 @@ class GenericNeuralNet(object):
             callback=cg_callback,
             avextol=1e-8,
             maxiter=100) 
-        print("nonono")
+
         return self.vec_to_list(fmin_results)
 
 
@@ -679,7 +679,7 @@ class GenericNeuralNet(object):
             inverse_hvp = list(np.load(approx_filename)['inverse_hvp'])
             print('Loaded inverse HVP from %s' % approx_filename)
         else:
-            
+
             inverse_hvp = self.get_inverse_hvp(
                 test_indices[0],
                 test_grad_loss_no_reg_val,

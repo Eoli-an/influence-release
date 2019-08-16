@@ -33,12 +33,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="106" />
+          <entry key="py" value="181" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="106" />
+          <entry key="Python" value="181" />
         </counts>
       </usages-collector>
     </session>
@@ -98,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="685" column="36" selection-start-line="685" selection-start-column="36" selection-end-line="685" selection-end-column="36" />
+            <state relative-caret-position="113">
+              <caret line="550" column="42" selection-start-line="550" selection-start-column="42" selection-end-line="550" selection-end-column="42" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -159,7 +159,6 @@
       <find>params</find>
       <find>hessian_ve</find>
       <find>fmin_ncg</find>
-      <find>get_invers</find>
       <find>print(</find>
       <find>model2</find>
       <find>hidden2_</find>
@@ -170,6 +169,11 @@
       <find>train</find>
       <find>train_op</find>
       <find>minimi</find>
+      <find>get_invers</find>
+      <find>fmin_nc</find>
+      <find>fmin_loss</find>
+      <find>fmin_loss_f</find>
+      <find>fmin_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -430,8 +434,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="685" column="36" selection-start-line="685" selection-start-column="36" selection-end-line="685" selection-end-column="36" />
+        <state relative-caret-position="113">
+          <caret line="550" column="42" selection-start-line="550" selection-start-column="42" selection-end-line="550" selection-end-column="42" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
