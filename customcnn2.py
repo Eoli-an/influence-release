@@ -2,7 +2,7 @@
 from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import
-from __future__ import unicode_literals  
+from __future__ import unicode_literals
 # -*- coding: utf-8 -*-
 """CustomCNN2.ipynb
 
@@ -21,7 +21,7 @@ handling imports
 
 
 import numpy as np
-import IPython
+
 
 import math
 import copy
@@ -132,8 +132,8 @@ model = All_CNN_C(
     log_dir='log',
     model_name='mnist_small_all_cnn_c')
 
-'''num_steps = 5000
-model.train(
+num_steps = 5000
+'''model.train(
     num_steps=num_steps, 
     iter_to_switch_to_batch=10000,
     iter_to_switch_to_sgd=10000)
@@ -147,7 +147,7 @@ CNN_predicted_loss_diffs = model.get_influence_on_test_loss(
     [test_idx], 
     np.arange(len(model.data_sets.train.labels)),
     force_refresh=True)
-
+print("x")
 """saving the influence"""
 
 np.savez(
@@ -156,7 +156,7 @@ np.savez(
     CNN_predicted_loss_diffs=CNN_predicted_loss_diffs
     
 )
-
+print("y")
 """# **Loading influences and plotting the most influential pictures**
 
 getting Xtrain of the Training Dataset
