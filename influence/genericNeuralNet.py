@@ -683,6 +683,7 @@ class GenericNeuralNet(object):
                 test_grad_loss_no_reg_val,
                 approx_type,
                 approx_params)
+            print("ooooooooooooooooo")
             np.savez(approx_filename, inverse_hvp=inverse_hvp)
             print('Saved inverse HVP to %s' % approx_filename)
 
