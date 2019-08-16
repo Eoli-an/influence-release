@@ -410,6 +410,7 @@ class GenericNeuralNet(object):
         """
         Return train_sgd_op
         """
+
         optimizer = tf.train.GradientDescentOptimizer(learning_rate)
         train_op = optimizer.minimize(total_loss, global_step=global_step)
         return train_op
@@ -676,6 +677,7 @@ class GenericNeuralNet(object):
             inverse_hvp = list(np.load(approx_filename)['inverse_hvp'])
             print('Loaded inverse HVP from %s' % approx_filename)
         else:
+            print("lalalalalalalalalaalallalal")
             inverse_hvp = self.get_inverse_hvp(
                 test_indices[0],
                 test_grad_loss_no_reg_val,

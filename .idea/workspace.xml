@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79007c87-7191-4db2-8c25-2713d848a2b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CustomCNN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CustomCNN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customcnn2.py" beforeDir="false" afterPath="$PROJECT_DIR$/customcnn2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/influence/genericNeuralNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/influence/genericNeuralNet.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,12 +33,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="37" />
+          <entry key="py" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="37" />
+          <entry key="Python" value="80" />
         </counts>
       </usages-collector>
     </session>
@@ -102,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="133" column="21" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="21" />
+            <state relative-caret-position="300">
+              <caret line="679" column="46" selection-start-line="679" selection-start-column="46" selection-end-line="679" selection-end-column="46" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -137,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/customcnn2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="135" column="8" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="11" />
+            <state relative-caret-position="425">
+              <caret line="136" column="25" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
               <folding>
                 <element signature="e#1#32#0" expanded="true" />
               </folding>
@@ -187,8 +183,8 @@
         <option value="$PROJECT_DIR$/scripts/load_mnist.py" />
         <option value="$PROJECT_DIR$/influence/all_CNN_c.py" />
         <option value="$PROJECT_DIR$/influence/test_file.py" />
-        <option value="$PROJECT_DIR$/influence/genericNeuralNet.py" />
         <option value="$PROJECT_DIR$/customcnn2.py" />
+        <option value="$PROJECT_DIR$/influence/genericNeuralNet.py" />
       </list>
     </option>
   </component>
@@ -424,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/customcnn2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="135" column="8" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="11" />
+        <state relative-caret-position="425">
+          <caret line="136" column="25" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
           <folding>
             <element signature="e#1#32#0" expanded="true" />
           </folding>
@@ -434,8 +430,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="133" column="21" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="21" />
+        <state relative-caret-position="300">
+          <caret line="679" column="46" selection-start-line="679" selection-start-column="46" selection-end-line="679" selection-end-column="46" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
