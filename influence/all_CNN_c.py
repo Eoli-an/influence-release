@@ -160,7 +160,9 @@ class All_CNN_C(GenericNeuralNet):
         weights4 = weights4.flatten()
         biases4 = model.layers[7].get_weights()[1]
 
-        return [weights1,biases1,weights2,biases2,weights3,biases3,weights4,biases4]'''
+        return [weights1,biases1,weights2,biases2,weights3,biases3,weights4,biases4]
+
+
         weights1 = model.layers[0].get_weights()[0]
         weights1 = weights1.flatten()
         biases1 = model.layers[0].get_weights()[1]
@@ -185,11 +187,22 @@ class All_CNN_C(GenericNeuralNet):
         weights15 = weights15.flatten()
         biases15 = model.layers[14].get_weights()[1]
 
-        return [weights1, biases1, weights4, biases4, weights7, biases7, weights10, biases10,weights15,biases15]
+        return [weights1,biases1,weights4,biases4,weights7,biases7,weights10,biases10,weights15,biases15]
+        '''
+
+        params = model.get_weights()
+        for i,par in enumerate(params):
+            params[i] = par.flatten()
+
+        return params
 
 
     def conv2d_softplus(self, input_x, conv_patch_size, input_channels, output_channels, index,stride):
-        model2 = self.test_keras_model2()
+        #model3 = self.test_keras_model2()
+        model2 = load_model(os.path.join("data","final_net.hdf5"))
+
+
+
         initializers = self.get_initializers_of_keras2(model2)
 
         weights = tf.get_variable(

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79007c87-7191-4db2-8c25-2713d848a2b8" name="Default Changelist" comment="" />
+    <list default="true" id="79007c87-7191-4db2-8c25-2713d848a2b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/influence/all_CNN_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/influence/all_CNN_c.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +18,10 @@
     <session id="-1563442750">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -31,12 +36,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="181" />
+          <entry key="py" value="675" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="181" />
+          <entry key="Python" value="675" />
         </counts>
       </usages-collector>
     </session>
@@ -96,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="124" column="23" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="23" />
+            <state relative-caret-position="140">
+              <caret line="669" selection-start-line="669" selection-end-line="669" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -116,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="218" column="15" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="15" />
+            <state relative-caret-position="255">
+              <caret line="291" column="38" lean-forward="true" selection-start-line="291" selection-start-column="38" selection-end-line="291" selection-end-column="38" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -128,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/customcnn2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="136" column="25" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
+            <state relative-caret-position="140">
+              <caret line="148" selection-start-line="148" selection-end-line="148" />
               <folding>
                 <element signature="e#1#32#0" expanded="true" />
               </folding>
@@ -187,14 +192,14 @@
         <option value="$PROJECT_DIR$/scripts/test.py" />
         <option value="$PROJECT_DIR$/influence/inception_v3.py" />
         <option value="$PROJECT_DIR$/scripts/load_mnist.py" />
-        <option value="$PROJECT_DIR$/influence/all_CNN_c.py" />
         <option value="$PROJECT_DIR$/influence/test_file.py" />
         <option value="$PROJECT_DIR$/customcnn2.py" />
         <option value="$PROJECT_DIR$/influence/genericNeuralNet.py" />
+        <option value="$PROJECT_DIR$/influence/all_CNN_c.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
     <option name="y" value="50" />
     <option name="width" value="980" />
@@ -205,6 +210,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,13 +221,17 @@
             <path>
               <item name="influence-release" type="b2602c69:ProjectViewProjectNode" />
               <item name="influence-release" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="influence-release" type="b2602c69:ProjectViewProjectNode" />
+              <item name="influence-release" type="462c0819:PsiDirectoryNode" />
               <item name="influence" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -328,15 +338,15 @@
     <option name="totallyTimeSpent" value="56727000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30295047" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30295047" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.48754063" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -362,6 +372,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/influence/test_file.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -411,35 +424,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/influence/test_file.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
+    <entry file="file://$PROJECT_DIR$/customcnn2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="218" column="15" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="15" />
+        <state relative-caret-position="140">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#1#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/influence/genericNeuralNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="124" column="23" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="23" />
+        <state relative-caret-position="140">
+          <caret line="669" selection-start-line="669" selection-end-line="669" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/customcnn2.py">
+    <entry file="file://$PROJECT_DIR$/influence/all_CNN_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="136" column="25" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
+        <state relative-caret-position="255">
+          <caret line="291" column="38" lean-forward="true" selection-start-line="291" selection-start-column="38" selection-end-line="291" selection-end-column="38" />
           <folding>
-            <element signature="e#1#32#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
