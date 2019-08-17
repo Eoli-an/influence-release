@@ -231,6 +231,8 @@ class GenericNeuralNet(object):
 
 
     def fill_feed_dict_with_some_ex(self, data_set, target_indices):
+        print(data_set.x.shape)
+        print(target_indices)
         input_feed = data_set.x[target_indices, :].reshape(len(target_indices), -1)
         labels_feed = data_set.labels[target_indices].reshape(-1)
         feed_dict = {
@@ -548,7 +550,7 @@ class GenericNeuralNet(object):
 
         def get_fmin_loss(x):
             hessian_vector_val = self.minibatch_hessian_vector_val(self.vec_to_list(x))
-            print(hessian_vector_val.shape)
+            #print(hessian_vector_val.shape)
             return 0.5 * np.dot(np.concatenate(hessian_vector_val), x) - np.dot(np.concatenate(v), x)
         return get_fmin_loss
 

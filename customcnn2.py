@@ -45,14 +45,22 @@ from scripts.load_mnist import load_small_mnist, load_mnist
 """loading the dataset"""
 
 import h5py
-path_to_matrices = "data/default_labeled_balanced.hdf5"
+path_to_matrices = "data/training_set.hdf5"
+#path_to_matrices = "data/default_labeled_balanced.hdf5"
 dataset = h5py.File(path_to_matrices, 'r')
 
-matrices = np.array(dataset['dense_matrices'])
+matrices = np.array(dataset['matrices'])
 labels = np.array(dataset['label_vectors'])
+print(matrices.shape)
+print(labels.shape)
+matrices = matrices[0:50,:,:]
+labels = labels[0:50,:]
+print(matrices.shape)
+print(labels.shape)
 
 randomize = np.arange(len(matrices))
 np.random.shuffle(randomize)
+
 matrices = matrices[randomize]
 labels = labels[randomize]
 
@@ -67,7 +75,7 @@ for label in labels:
 labels = new_labels
 labels = np.asarray(labels)
 
-training_test_split = 0.8
+training_test_split = 0.5
 index = int(training_test_split * len(matrices))
 
 train_matrices = np.expand_dims(matrices[:index], axis=3)
@@ -87,9 +95,9 @@ data_sets = base.Datasets(train=train, validation=validation, test=test)
 
 data_sets2 = load_small_mnist('data')
 
-print(data_sets.train.labels.shape)
+#(data_sets.train.labels.shape)
 #print(data_sets2.train.labels.shape)
-print(data_sets.train.x.shape)
+#print(data_sets.train.x.shape)
 #print(data_sets2.train.x.shape)
 
 """defining the CNN
@@ -141,13 +149,13 @@ iter_to_load = num_steps - 1'''
 
 """calculating the influence"""
 
-test_idx = 50
+test_idx = 2
 
 CNN_predicted_loss_diffs = model.get_influence_on_test_loss(
     [test_idx], 
     np.arange(len(model.data_sets.train.labels)),
     force_refresh=True)
-print("x")
+#("x")
 """saving the influence"""
 
 np.savez(
@@ -156,7 +164,7 @@ np.savez(
     CNN_predicted_loss_diffs=CNN_predicted_loss_diffs
     
 )
-print("y")
+#print("y")
 """# **Loading influences and plotting the most influential pictures**
 
 getting Xtrain of the Training Dataset
