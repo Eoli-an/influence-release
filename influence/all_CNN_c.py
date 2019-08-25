@@ -21,6 +21,7 @@ import time
 import IPython
 import tensorflow as tf
 import math
+import tensorflow.math
 
 import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
@@ -295,7 +296,7 @@ class All_CNN_C(GenericNeuralNet):
             dense1 = tf.matmul(conv_reshaped, tf.reshape(weights1, [ 2160,
                                                                      self.num_classes])) + biases1
 
-        return dense1
+        return tf.math.sigmoid(dense1)
         '''model2 = self.test_keras_model2()
         initializers = self.get_initializers_of_keras2(model2)
 
